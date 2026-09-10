@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CivNexus Comms">
+  <meta name="generator" content="Minimalist CMS">
+  <link rel="icon" href="favicon.jpg">
+  <link rel="canonical" href="https://civnet.civnexus.com/">
+  <meta property="og:title" content="CivNet">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://civnet.civnexus.com/">
+<meta property="og:description" content="CivNexus Comms">
+  
+  <title>CivNet</title>
+  <style>
+    :root { --background: #05090B; --text: #04D9FF; --muted: #86E9FF; --line: #185766; --surface: #0C171B; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--background); color: var(--text); font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 17px; line-height: 1.55; }
+    h1, h2, h3, header strong, .content-list-item strong { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    header { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid currentColor; }
+    header strong { min-width: 0; flex: 0 1 auto; font-size: 18px; }
+    .site-title { display: block; max-width: min(320px, 48vw); text-decoration: none; }
+    .site-logo { display: block; width: auto; max-width: 100%; height: auto; max-height: 72px; object-fit: contain; object-position: left center; image-rendering: auto; }
+    nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 20px; }
+    nav details { position: relative; }
+    nav > a, nav summary, .nav-dropdown a { text-decoration: none; }
+    nav > a:hover, nav > a:focus-visible, nav summary:hover, nav summary:focus-visible, .nav-dropdown a:hover, .nav-dropdown a:focus-visible { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    nav summary { cursor: pointer; display: inline-flex; align-items: center; gap: 0.18em; list-style: none; font-weight: inherit; }
+    nav summary::marker { content: ""; }
+    nav summary::-webkit-details-marker { display: none; }
+    nav summary::after { content: "\25BE"; display: inline-block; font-size: 0.72em; text-decoration: none; }
+    nav details[open] summary::after { content: "\25BE"; }
+    .nav-dropdown { position: absolute; z-index: 2; right: 0; top: calc(100% + 10px); min-width: 190px; padding: 8px 0; background: var(--background); border: 1px solid currentColor; }
+    .nav-dropdown a { display: block; padding: 8px 14px; white-space: nowrap; }
+    main { min-height: calc(100vh - 150px); }
+    .hero, .content-section { padding: 64px 0; }
+    h1 { max-width: 880px; margin: 0 0 26px; font-size: clamp(40px, 4.8vw, 62px); line-height: 1.04; letter-spacing: 0; }
+    .home-hero h1 { font-size: clamp(44px, 5.5vw, 72px); line-height: 1; }
+    h2 { margin: 0 0 20px; font-size: 24px; letter-spacing: 0; }
+    h3 { margin: 0 0 18px; font-size: 22px; letter-spacing: 0; }
+    .lead { max-width: 760px; font-size: 23px; }
+    .article .prose { max-width: 760px; }
+    .article-layout { display: grid; grid-template-columns: minmax(0, 760px) minmax(220px, 300px); gap: 72px; align-items: start; padding: 64px 0; }
+    .article-layout > .content-section { padding: 0; }
+    .site-sidebar { min-width: 0; padding-top: 0; }
+    .post-article.has-meta h1 { margin-bottom: 10px; }
+    .post-article > .meta { margin: 0 0 24px; }
+    .prose p { margin: 0; }
+    .prose ul, .prose ol { margin: 0; padding-left: 1.5em; }
+    .prose li + li { margin-top: 0; }
+    .prose .blank-line { height: 1.55em; }
+    .prose figure { margin: 1.55em 0; }
+    .prose img { display: block; max-width: 100%; height: auto; }
+    .prose .image-rounded img { border-radius: 6px; }
+    .prose .image-full img { width: 100%; }
+    .prose .image-original img { width: auto; }
+    .prose figcaption { margin-top: 8px; font-size: 14px; opacity: 0.68; }
+    .prose .text-small { font-size: 14px; opacity: 0.78; }
+    .prose .rich-heading { margin: 0.72em 0 0.24em; line-height: 1.16; }
+    .prose > .rich-heading:first-child { margin-top: 0; }
+    .prose .rich-heading + .rich-heading { margin-top: 0.42em; }
+    .youtube-lite { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 1.6em 0; border: 0; padding: 0; overflow: hidden; cursor: pointer; background: #000; color: #fff; }
+    .youtube-lite img { width: 100%; height: 100%; object-fit: cover; margin: 0; opacity: 0.88; }
+    .youtube-lite span { position: absolute; inset: 50% auto auto 50%; translate: -50% -50%; width: 68px; height: 48px; display: grid; place-items: center; background: #000; border: 1px solid #fff; font-size: 24px; }
+    .youtube-frame { width: 100%; aspect-ratio: 16 / 9; margin: 1.6em 0; border: 0; }
+    .x-post { margin: 1.55em 0; }
+    .x-post-placeholder { display: block; padding: 18px; border: 1px solid currentColor; text-decoration: none; }
+    .inline-button { display: flex; margin: 1.55em 0; }
+    .inline-button.align-left { justify-content: flex-start; }
+    .inline-button.align-center { justify-content: center; }
+    .inline-button.align-right { justify-content: flex-end; }
+    .inline-button a { display: inline-block; padding: 10px 16px; border: 1px solid currentColor; border-radius: 4px; text-decoration: none; font-weight: 600; }
+    .custom-embed { margin-top: 32px; }
+    .embed-placeholder { margin-top: 32px; padding: 16px; border: 1px dashed currentColor; opacity: 0.62; font-size: 14px; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+    .home-hero { padding-bottom: 32px; }
+    .eyebrow { margin: 0 0 20px; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .hero-with-image { display: grid; align-items: center; gap: 56px; }
+    .hero-image-width-compact { grid-template-columns: minmax(0, 1fr) minmax(280px, 0.82fr); }
+    .hero-image-width-balanced { grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr); gap: 48px; }
+    .hero-image-width-large { grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1.28fr); gap: 48px; }
+    .hero-image-left .hero-media { order: -1; }
+    .hero-with-image h1 { max-width: none; }
+    .hero-media figure { margin: 0; width: 100%; height: 100%; }
+    .hero-media img { display: block; width: 100%; height: auto; object-fit: contain; }
+    .hero-framed .hero-media { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 40px -24px rgba(0, 0, 0, 0.33); }
+    .hero-framed .hero-media figure, .hero-framed .hero-media img { border-radius: 5px; overflow: hidden; }
+    .hero-rounded .hero-media { border-radius: 6px; overflow: hidden; }
+    .hero-framed.hero-rounded .hero-media { border-radius: 12px; }
+    .hero-image-display-fill .hero-media { aspect-ratio: 4 / 3; overflow: hidden; }
+    .hero-image-display-fill .hero-media img { height: 100%; object-fit: cover; }
+    .home-section { padding-top: 32px; padding-bottom: 48px; }
+    .content-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+    .page-collection .content-grid:not(.outlined) { gap: 22px; }
+    .content-grid.outlined { gap: 18px; }
+    .content-card { min-height: 190px; display: flex; flex-direction: column; text-decoration: none; }
+    .card-media { width: 100%; aspect-ratio: 16 / 9; margin: 0 0 20px; overflow: hidden; background: color-mix(in srgb, currentColor 6%, transparent); }
+    .card-media.rounded { border-radius: 6px; }
+    .card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .content-grid.outlined .content-card { padding: 24px; border: 1px solid var(--line); border-radius: 6px; transition: border-color 0.15s ease, background-color 0.15s ease; }
+    .content-grid.outlined .content-card:hover { border-color: color-mix(in srgb, var(--line) 65%, var(--text)); background: color-mix(in srgb, var(--surface) 55%, transparent); }
+    .content-card p { margin: 0; }
+    .content-card .meta { margin: -9px 0 24px; }
+    .content-list-item { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 0; text-decoration: none; }
+    .content-list.outlined .content-list-item { padding: 18px 0; }
+    .content-list.outlined .content-list-item + .content-list-item { border-top: 1px solid var(--line); }
+    .content-list-item strong, .content-list-item small { display: block; }
+    .content-list-item small { max-width: 720px; margin-top: 3px; opacity: 0.62; font-size: 14px; }
+    .meta, .muted { opacity: 0.62; }
+    body.refined-typography { -webkit-font-smoothing: antialiased; }
+    body.refined-typography h1, body.refined-typography h2, body.refined-typography h3, body.refined-typography header strong, body.refined-typography .content-list-item strong { letter-spacing: 0; }
+    body.refined-typography h1 { line-height: 1.08; }
+    body.refined-typography .home-hero h1 { font-size: clamp(42px, 4.5vw, 60px); line-height: 1.05; margin-bottom: 24px; }
+    body.refined-typography .lead { max-width: 460px; color: var(--muted); font-size: 18px; line-height: 1.7; }
+    body.refined-typography .article .prose { line-height: 1.75; }
+    body.refined-typography .content-list-item { gap: 32px; padding: 20px 0; }
+    body.refined-typography .content-list-item strong { font-size: 18px; font-weight: 600; }
+    body.refined-typography .content-list-item small { margin-top: 5px; color: var(--muted); opacity: 1; font-size: 15px; line-height: 1.6; }
+    body.light-navigation header { min-height: 88px; border-color: var(--line); }
+    body.light-navigation header strong { font-size: 19px; white-space: nowrap; }
+    body.light-navigation header nav { gap: 22px; font-size: 14px; }
+    body.light-navigation header nav > a, body.light-navigation header nav > details > summary { padding: 12px 0; color: var(--muted); }
+    body.light-navigation header nav > a:hover, body.light-navigation header nav > a:focus-visible, body.light-navigation header nav > details > summary:hover, body.light-navigation header nav > details > summary:focus-visible { color: var(--text); }
+    body.soft-page-cards .page-collection .content-grid, body.soft-post-cards .post-collection .content-grid { gap: 24px; }
+    body.soft-page-cards .page-collection .content-card, body.soft-post-cards .post-collection .content-card { min-height: 240px; padding: 24px; background: var(--surface); border: 1px solid transparent; border-radius: 8px; transition: border-color 0.15s ease; }
+    body.soft-page-cards .page-collection .content-card:hover, body.soft-post-cards .post-collection .content-card:hover { border-color: color-mix(in srgb, var(--line) 87%, var(--text)); }
+    body.soft-page-cards .page-collection .content-card h3, body.soft-post-cards .post-collection .content-card h3 { margin-bottom: 16px; font-size: 21px; line-height: 1.25; }
+    body.soft-page-cards .page-collection .content-card .meta, body.soft-post-cards .post-collection .content-card .meta { margin: 0 0 16px; color: var(--muted); opacity: 1; font-size: 13px; }
+    body.soft-page-cards .page-collection .content-card > p:last-child, body.soft-post-cards .post-collection .content-card > p:last-child { color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .home-custom-section { border-top: 1px solid var(--line); }
+    .home-custom-section h2 { margin-bottom: 24px; font-size: 34px; line-height: 1.15; }
+    .home-custom-section .prose { max-width: 820px; }
+    footer { padding: 24px 0 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid currentColor; }
+    footer p { margin: 0; }
+    .social-links { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-left: auto; }
+    .social-links a { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; text-decoration: none; font-size: 12px; font-weight: 700; line-height: 1; }
+    .social-links svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 28px, 1120px); }
+      header { align-items: flex-start; flex-wrap: wrap; padding: 18px 0; }
+      header strong, header nav { flex: 0 0 100%; width: 100%; }
+      .site-title { max-width: min(320px, 100%); }
+      .site-logo { max-height: 58px; }
+      nav { gap: 12px; }
+      .hero, .content-section { padding: 46px 0; }
+      h1 { font-size: 40px; }
+      .home-hero h1 { font-size: 43px; }
+      .lead { font-size: 20px; }
+      .hero-with-image, .article-layout { display: grid; grid-template-columns: 1fr; gap: 32px; }
+      .hero-framed .hero-media { padding: 10px; }
+      .hero-image-left .hero-media { order: 0; }
+      .article-layout { padding: 46px 0; }
+      .article-layout > .content-section { padding: 0; }
+      .site-sidebar { padding-top: 0; }
+      .content-grid { grid-template-columns: 1fr; }
+      .content-card { min-height: 0; }
+      .content-grid.outlined { gap: 14px; }
+      body.light-navigation header nav { gap: 0 20px; }
+      body.light-navigation header nav > a, body.light-navigation header nav > details > summary { padding: 9px 0; }
+      body.soft-page-cards .page-collection .content-grid, body.soft-post-cards .post-collection .content-grid { gap: 16px; }
+      body.soft-page-cards .page-collection .content-card, body.soft-post-cards .post-collection .content-card { min-height: 0; }
+      footer { align-items: flex-start; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body class="refined-typography">
+  
+  <header class="shell"><strong><a class="site-title" href="index.html">CivNet</a></strong><nav aria-label="Main navigation"><a href="p/about/index.html">About</a><a href="posts/index.html">Transmissions</a></nav></header>
+  <main class="shell"><section class="hero home-hero hero-with-image hero-image-right hero-image-display-fit hero-image-width-balanced hero-framed">
+  <div class="hero-copy">
+    <p class="eyebrow">Civilization 3.0 Loading..</p>
+    <h1>CivNexus Comms Terminal</h1>
+    <div class="prose lead"><p>Building the Next Era of Human Civilization</p></div>
+  </div>
+  <div class="hero-media"><figure class="content-image image-full"><img src="assets/image-ec808a57-6c95-40c3-93f8-c81b0fbcee82.jpg" srcset="assets/image-ec808a57-6c95-40c3-93f8-c81b0fbcee82-480.jpg 480w, assets/image-ec808a57-6c95-40c3-93f8-c81b0fbcee82-960.jpg 960w, assets/image-ec808a57-6c95-40c3-93f8-c81b0fbcee82.jpg 1322w" sizes="(max-width: 760px) calc(100vw - 28px), 760px" width="1322" height="787" alt="" loading="eager" fetchpriority="high" decoding="async"></figure></div>
+</section>
+
+<section class="content-section home-section page-collection">
+  <div class="section-heading"><h2>Pages</h2><a href="pages/index.html">All pages</a></div>
+  <div class="content-grid"><a class="content-card" href="p/about/index.html">
+  
+  <h3>About</h3>
+  <p>Comms terminal for CivNexus project.</p>
+</a></div>
+</section>
+<section class="content-section home-section post-collection">
+  <div class="section-heading"><h2>Latest transmissions</h2><a href="posts/index.html">All transmissions</a></div>
+  <div class="content-grid"><a class="content-card" href="posts/a-first-note/index.html">
+  
+  <h3>Hello World</h3>
+  <p class="meta">2026-09-09 by Your Name</p>
+  <p>We are now operational with CivNet v0.1</p>
+</a></div>
+</section></main>
+  <footer class="shell"><p>CivNet V0.1 | connect@civnexus.com</p></footer>
+  
+  
+  
+  
+</body>
+</html>

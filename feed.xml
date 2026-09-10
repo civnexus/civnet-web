@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>CivNet</title>
+  <link>https://civnet.civnexus.com</link>
+  <description>CivNexus Comms</description>
+  <item>
+  <title>Hello World</title>
+  <link>https://civnet.civnexus.com/posts/a-first-note/</link>
+  <guid>https://civnet.civnexus.com/posts/a-first-note/</guid>
+  <pubDate>Wed, 09 Sep 2026 00:00:00 +0800</pubDate>
+  <description>We are now operational with CivNet v0.1</description>
+</item>
+</channel></rss>
